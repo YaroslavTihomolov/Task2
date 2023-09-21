@@ -1,0 +1,25 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Здесь настраиваем цвета для разных уровней логирования -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT">
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>INFO</level>
+            </filter>
+        </appender-ref>
+    </root>
+
+    <!-- Настройки для DEBUG уровня, можно добавить и другие -->
+    <logger name="com.example" level="DEBUG">
+        <appender-ref ref="STDOUT">
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>DEBUG</level>
+            </filter>
+        </appender-ref>
+    </logger>
+</configuration>
